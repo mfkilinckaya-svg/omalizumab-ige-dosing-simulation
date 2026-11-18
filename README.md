@@ -16,6 +16,7 @@ Omalizumab dose and dosing interval are read from a table of pretreatment total 
 | `tr_scenario.py` | Turkish scenario: IgE distribution digitized from Altan et al. (2025) with Turkish (Neyzi 2015) or NHANES body weights. |
 | `neyzi_lms.py` | Turkish weight-for-age LMS parameters (Neyzi et al. 2015, Table 5, with the authors' 2026 correction for 8-year-old boys). |
 | `fig2_clinician.py` | Figure 2: repeated-measurement illustration and effect of analytical CV. |
+| `graphical_abstract.py` | Graphical abstract (9:6, 400 dpi). |
 | `data/altan2025_ige_bars_digitized.csv` | Median and 2.5th/97.5th percentiles of total IgE in 108 age bins (1–18 years), digitized from the published supplementary figure of Altan et al. 2025. |
 | `results/` | Output tables and figures. |
 
