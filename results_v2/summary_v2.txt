@@ -1,0 +1,90 @@
+CV profile:
+             conc        cv
+level                      
+L       24.063927  0.085990
+M      102.628439  0.083589
+H      438.573146  0.087424
+
+===== T1
+                         Population   n  Median age  Median weight Median IgE (IQR)  IgE <30, n Eligible, n (%)  Eligible with IgE 30–40, n
+        Asthma 12–17 y, Turkish KÜB 124        15.0           62.8    276 (144–724)           0         99 (80)                           5
+         Asthma 6–11 y, Turkish KÜB  52         9.0           33.6     286 (86–679)           1         43 (83)                           0
+         Asthma 6–11 y, FDA Table 2  52         9.0           33.6     286 (86–679)           1         40 (77)                           0
+        Asthma 12–17 y, FDA Table 1 124        15.0           62.8    276 (144–724)           0         83 (67)                           5
+Food-sensitized 1–17 y, FDA Table 4 767         8.0           30.8     170 (75–408)          45        650 (85)                          26
+
+===== T2
+                         Population  Eligible n False ineligibility % (95% CI)    of which below 30 IU/mL % False inelig., true IgE 30–40 % (95% CI)  n with IgE 30–40  False eligibility (true IgE ineligible) % Different regimen % (95% CI)  Higher dose %  Lower dose %  Interval change % Dose <80% formula % (at true IgE) Composite % (95% CI)
+        Asthma 12–17 y, Turkish KÜB          99                  1.7 (0.3–3.2)                          1.5                         32.5 (13.9–39.4)                 5                                        5.4              13.5 (8.7–18.0)            3.9           9.6                2.3                         0.0 (0.0)        1.7 (0.3–3.2)
+         Asthma 6–11 y, Turkish KÜB          43                  0.5 (0.0–1.6)                          0.0                                        –                 0                                        2.3              14.0 (5.9–19.3)            6.0           8.0                1.3                         0.0 (0.0)        0.5 (0.0–1.6)
+         Asthma 6–11 y, FDA Table 2          40                  2.2 (0.0–5.6)                          0.0                                        –                 0                                        0.9              11.8 (4.0–17.4)            3.8           8.0                1.8                         0.0 (0.0)        2.2 (0.0–5.6)
+        Asthma 12–17 y, FDA Table 1          83                  3.1 (1.2–5.3)                          1.7                         32.5 (13.9–39.4)                 5                                        4.3              10.0 (5.8–13.9)            2.4           7.6                5.5                         0.0 (0.0)        3.1 (1.2–5.3)
+Food-sensitized 1–17 y, FDA Table 4         650                  0.7 (0.3–1.1)                          0.5                          11.9 (3.6–21.2)                26                                        5.0               9.0 (7.9–10.2)            4.2           4.8                0.9                         0.0 (0.0)        0.7 (0.3–1.1)
+
+===== T3
+                                          Scenario                                                          Value  False inelig. %  False inelig., IgE 30–40 %  Different regimen %  Dose <80% formula %  False elig. %
+                                         Base case                                   NHANES CV profile (8.4–8.7%)              1.7                        32.5                 13.5                  0.0            5.4
+                          Analytical CV (constant)                                                             5%              1.2                        24.5                  8.7                  0.0            4.3
+                          Analytical CV (constant)                                                             8%              1.6                        31.6                 12.8                  0.0            5.1
+                          Analytical CV (constant)                                                            11%              2.0                        35.6                 16.2                  0.0            6.4
+                          Analytical CV (constant)                                                            15%              2.3                        38.9                 20.6                  0.0            8.6
+                                 Bias (profile CV)                                                           -20%              4.5                        96.5                 41.0                  0.1           33.0
+                                 Bias (profile CV)                                                           -10%              3.4                        74.8                 25.6                  0.0           14.8
+                                 Bias (profile CV)                                                            -5%              2.6                        54.0                 18.4                  0.0            9.3
+                                 Bias (profile CV)                                                            +5%              1.2                        15.9                 12.1                  0.0            2.7
+                                 Bias (profile CV)                                                           +10%              1.1                         6.4                 13.9                  0.0            1.2
+                                 Bias (profile CV)                                                           +20%              2.0                         0.6                 23.1                  0.0            0.1
+Within-subject biological variation (hypothetical)                                                            10%              2.2                        37.6                 18.7                  0.0            7.6
+Within-subject biological variation (hypothetical)                                                            20%              3.0                        42.0                 27.6                  0.2           12.7
+Within-subject biological variation (hypothetical)                                                            30%              4.0                        44.3                 35.7                  1.1           17.6
+                             Population definition         Asthma ever 12–17 y, Turkish KÜB (v1) (n eligible 179)              1.9                        16.2                 10.3                  0.0            4.4
+                             Population definition Asthma 12–17 y + attack past year, Turkish KÜB (n eligible 51)              0.3                        27.1                  9.6                  0.0            9.2
+
+===== T4
+ Age  Weight  True IgE  CV at this level %      Correct regimen  Correct assigned %    Most likely alternative  Formula dose, mg/4 wk
+  14      55        32                 8.6 150 mg every 4 weeks                  78           Ineligible (22%)                     28
+  14      55        35                 8.5 150 mg every 4 weeks                  96            Ineligible (4%)                     31
+  14      55        95                 8.4 150 mg every 4 weeks                  73 300 mg every 4 weeks (27%)                     84
+  15      65       105                 8.4 300 mg every 4 weeks                  72 150 mg every 4 weeks (28%)                    109
+  16      85       290                 8.6 450 mg every 4 weeks                  65 600 mg every 4 weeks (35%)                    394
+   9      35       620                 8.7 450 mg every 4 weeks                  92  300 mg every 2 weeks (8%)                    347
+
+===== T5
+                                 Strategy  Repeat tests per 100 eligible  False inelig. %  Different regimen %  Dose <80% formula %  Mean change, mg per 4 weeks                            Population
+                       Single measurement                            0.0             1.73                 13.5                  0.0                         -7.8           Asthma 12–17 y, Turkish KÜB
+                     Repeat all, use mean                          100.0             1.42                 10.4                  0.0                         -7.2           Asthma 12–17 y, Turkish KÜB
+        Repeat if within ±20% of a border                           74.8             1.42                 10.4                  0.0                         -7.2           Asthma 12–17 y, Turkish KÜB
+        Repeat if within ±10% of 30 IU/mL                            2.9             1.51                 13.5                  0.0                         -7.8           Asthma 12–17 y, Turkish KÜB
+Round up if within 20% below a row border                            0.0             2.50                 21.9                  0.0                         34.2           Asthma 12–17 y, Turkish KÜB
+                       Single measurement                            0.0             0.66                  9.0                  0.0                         -1.2   Food-sensitized 1–17 y, FDA Table 4
+                     Repeat all, use mean                          100.0             0.47                  6.4                  0.0                         -1.0   Food-sensitized 1–17 y, FDA Table 4
+        Repeat if within ±20% of a border                           61.3             0.47                  6.4                  0.0                         -1.0   Food-sensitized 1–17 y, FDA Table 4
+        Repeat if within ±10% of 30 IU/mL                            1.2             0.54                  9.0                  0.0                         -1.2   Food-sensitized 1–17 y, FDA Table 4
+Round up if within 20% below a row border                            0.0             1.02                 21.4                  0.0                         27.4   Food-sensitized 1–17 y, FDA Table 4
+                       Single measurement                            0.0             3.03                 27.7                  0.2                         -7.6 Asthma 12–17 y, Turkish KÜB, CV_I 20%
+                     Repeat all, use mean                          100.0             2.39                 21.0                  0.0                         -8.3 Asthma 12–17 y, Turkish KÜB, CV_I 20%
+        Repeat if within ±20% of a border                           72.9             2.42                 21.4                  0.0                         -8.9 Asthma 12–17 y, Turkish KÜB, CV_I 20%
+        Repeat if within ±10% of 30 IU/mL                            1.6             2.90                 27.7                  0.2                         -7.6 Asthma 12–17 y, Turkish KÜB, CV_I 20%
+Round up if within 20% below a row border                            0.0             3.98                 31.9                  0.0                         37.5 Asthma 12–17 y, Turkish KÜB, CV_I 20%
+
+===== CORR
+ age   n   rho
+   6 151  0.03
+   7 131  0.03
+   8 153  0.04
+   9 164  0.05
+  10 174  0.18
+  11 149  0.21
+  12 250  0.00
+  13 239 -0.01
+  14 221  0.01
+  15 246  0.10
+  16 260  0.15
+  17 242  0.19
+
+MAIN raw:
+A: false_inel=0.017114557801214385, diff=0.1352116453837449, higher=0.03926122765971884, lower=0.09595041772402606, interval=0.022553384337818068, under80=7.687973374258105e-08, under80_true=0.0, below30=0.014771080566230152, false_elig=0.05370699346865462, false_inel_30_40=0.3245935675939931, composite=0.017114634680948128, share_30_40=0.045505276215782056, n=124, n_elig=99, n_30_40=5, false_inel_ci=(np.float64(0.0032790674956409654), np.float64(0.03190764716829955)), diff_ci=(np.float64(0.08661374472990202), np.float64(0.18019192736687767)), under80_ci=(np.float64(2.1036955157728782e-08), np.float64(1.3557407415202862e-07)), composite_ci=(np.float64(0.0032791555635956707), np.float64(0.031907669855386275)), false_inel_30_40_ci=(np.float64(0.13863156356752232), np.float64(0.3935851087632702))
+B: false_inel=0.005123791719785019, diff=0.13996565120543064, higher=0.05963130536533118, lower=0.08033434584009945, interval=0.013063226161483343, under80=7.205868236982909e-06, under80_true=0.0, below30=2.6488191569771503e-10, false_elig=0.023148895008342628, false_inel_30_40=nan, composite=0.005130997588022002, share_30_40=0.0, n=52, n_elig=43, n_30_40=0, false_inel_ci=(np.float64(5.779040881890178e-10), np.float64(0.01583729819746443)), diff_ci=(np.float64(0.05856686180233303), np.float64(0.193299075161259)), under80_ci=(np.float64(2.7538134158213037e-10), np.float64(1.8665376255830344e-05)), composite_ci=(np.float64(2.1148643993667713e-08), np.float64(0.01583786613983527)), false_inel_30_40_ci=(np.float64(nan), np.float64(nan))
+C: false_inel=0.022357711476326526, diff=0.11807232560942992, higher=0.038256414917806805, lower=0.07981591069162311, interval=0.01820300992851122, under80=7.398977549150327e-06, under80_true=0.0, below30=2.720561576582866e-10, false_elig=0.008757899771625312, false_inel_30_40=nan, composite=0.022365110453875677, share_30_40=0.0, n=52, n_elig=40, n_30_40=0, false_inel_ci=(np.float64(3.922954700989209e-10), np.float64(0.056325377014837454)), diff_ci=(np.float64(0.03953922997762542), np.float64(0.17381448762812923)), under80_ci=(np.float64(1.2801104087307918e-13), np.float64(1.939015326969668e-05)), composite_ci=(np.float64(7.952078368608827e-09), np.float64(0.05632597693754526)), false_inel_30_40_ci=(np.float64(nan), np.float64(nan))
+D: false_inel=0.03074831905357727, diff=0.0999984261213213, higher=0.024236440126371578, lower=0.07576198599494972, interval=0.055184525874462556, under80=6.831062057679444e-08, under80_true=0.0, below30=0.016523216898724227, false_elig=0.04331390486804699, false_inel_30_40=0.3245935675939931, composite=0.030748387364197848, share_30_40=0.05090308360166372, n=124, n_elig=83, n_30_40=5, false_inel_ci=(np.float64(0.012041308808335925), np.float64(0.05292144529286792)), diff_ci=(np.float64(0.0581850981220114), np.float64(0.139165872307605)), under80_ci=(np.float64(0.0), np.float64(1.3207643485470663e-07)), composite_ci=(np.float64(0.012041408182167146), np.float64(0.05292152755282958)), false_inel_30_40_ci=(np.float64(0.13863156356752232), np.float64(0.3935851087632702))
+E: false_inel=0.006535265055894525, diff=0.08987266659670323, higher=0.04180083612574143, lower=0.04807183047096179, interval=0.009059482386005874, under80=1.3920513459941774e-06, under80_true=0.0, below30=0.004564088816469164, false_elig=0.05033175149268704, false_inel_30_40=0.11908683003975963, composite=0.00653665710724052, share_30_40=0.038310250929828, n=767, n_elig=650, n_30_40=26, false_inel_ci=(np.float64(0.0027951963304615637), np.float64(0.011205253357464468)), diff_ci=(np.float64(0.07889103016673897), np.float64(0.10232632434229151)), under80_ci=(np.float64(7.976503235249452e-08), np.float64(2.811236039366754e-06)), composite_ci=(np.float64(0.002796110809676767), np.float64(0.011205443163789726)), false_inel_30_40_ci=(np.float64(0.036492631454696056), np.float64(0.21231734168600103))

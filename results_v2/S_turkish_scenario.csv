@@ -1,0 +1,7 @@
+Age,CV,Eligible %,Eligible with IgE 30–40 %,False ineligibility %,"False inelig., IgE 30–40 %",Different regimen %,False eligibility %
+12–17 y,NHANES profile,65.5,15.1,1.8,11.6,5.3,3.4
+12–17 y,5% (nephelometry),65.5,15.1,1.0,6.7,3.1,2.0
+12–17 y,11%,65.5,15.1,2.3,14.9,6.8,4.2
+6–11 y,NHANES profile,62.5,14.4,1.7,11.4,5.3,2.6
+6–11 y,5% (nephelometry),62.5,14.4,1.0,6.7,3.1,1.5
+6–11 y,11%,62.5,14.4,2.1,14.7,6.8,3.3
