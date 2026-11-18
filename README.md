@@ -53,7 +53,7 @@ Random seeds are fixed.
 
 ## Use of AI
 
-Code drafting was assisted by Claude (Anthropic). Dosing tables were verified against the source documents by the authors, and all code and results were reviewed by the authors.
+Claude (Opus 5.5; Anthropic), a large language model, was used to draft the analysis code (Python) and figures, and to draft and edit the manuscript text.
 
 ## License
 
