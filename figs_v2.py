@@ -40,7 +40,7 @@ ax.set_xticks(t["wt"]); ax.set_xticklabels([str(x) for x in t["wt"]], fontsize=7
 ax.set_xlabel("Body weight (kg)"); ax.set_ylabel("True pretreatment total IgE (IU/mL)"); ax.grid(False)
 cb = fig.colorbar(im, ax=ax, ticks=bnd); cb.set_ticklabels(["0", "5", "10", "20", "30", "40", "50"])
 cb.set_label("P(different regimen or ineligible), %")
-ax.set_title("Turkish KÜB dosing table: misclassification probability (NHANES assay CV profile, 8.4–8.7%)", fontsize=8.5, color=C["ink"])
+ax.set_title("Turkish SmPC dosing table: misclassification probability (NHANES assay CV profile, 8.4–8.7%)", fontsize=8.5, color=C["ink"])
 ax.legend(loc="upper right", fontsize=6.5, markerscale=2)
 fig.tight_layout()
 for ext in ("png", "pdf"): fig.savefig(OUT / f"Fig1_KUB_heatmap.{ext}")
@@ -77,7 +77,7 @@ ax.set_title("B  Exclusion risk just above 30 IU/mL", fontsize=8.5, loc="left");
 ax.grid(True, color=C["grid"], lw=0.6); ax.legend(fontsize=7)
 # C: different regimen vs CV (revised populations)
 ax = fig.add_subplot(gs[1, 1]); cvs = np.linspace(0.02, 0.20, 19)
-for key, lab, col, ls in (("A", "Asthma 12–17 y (KÜB)", C["blue"], "-"), ("B", "Asthma 6–11 y (KÜB)", C["aqua"], "--"),
+for key, lab, col, ls in (("A", "Asthma 12–17 y (Turkish SmPC)", C["blue"], "-"), ("B", "Asthma 6–11 y (Turkish SmPC)", C["aqua"], "--"),
                           ("E", "Food-sensitized 1–17 y (FDA T4)", C["orange"], "-.")):
     ax.plot(100 * cvs, [100 * A.run(key, cv=c)["diff"] for c in cvs], color=col, ls=ls, lw=1.6, label=lab)
 for x_, lab, ha, dx in ((5, "nephelometry", "right", -0.3), (8.5, "NHANES\nImmunoCAP", "left", 0.3)):
@@ -93,7 +93,7 @@ MA = A.run("A")
 t = TABLES["KUB"]; W = 55; col = int(col_index(t, W)); x = np.linspace(20, 395, 2000)
 step = np.array([mg4w(t, int(r), col) if r >= 0 else 0 for r in row_index(t, x)])
 fig = plt.figure(figsize=(9, 6)); ax = fig.add_axes([0.08, 0.13, 0.55, 0.68])
-ax.plot(x, step, color=C["blue"], lw=2.6, label="Dosing table, 55 kg (Turkish KÜB)")
+ax.plot(x, step, color=C["blue"], lw=2.6, label="Dosing table, 55 kg (Turkish SmPC)")
 ax.plot(x, 0.016 * W * x, color=C["ink2"], lw=1, ls="--", label="Formula requirement (0.016 × kg × IgE)")
 S95 = float(A.s_of("profile", np.array([95]))[0]); lo, hi = 95 * np.exp(-1.96 * S95), 95 * np.exp(1.96 * S95)
 ax.axvspan(lo, hi, color=C["band"], zorder=0); ax.axvline(95, color=C["ink"], lw=1.2)
@@ -105,8 +105,8 @@ ax.legend(loc="lower right", fontsize=8, frameon=False)
 fig.text(0.08, 0.92, "One measurement, one dose", fontsize=17, fontweight="bold", color=C["ink"])
 fig.text(0.08, 0.865, "Routine total IgE error and the steps of the omalizumab dosing table", fontsize=10.5, color=C["ink2"])
 items = ((0.70, f"{100*nums['p32_single']:.0f}%", "of children with true IgE\n32 IU/mL measured <30\nand excluded", C["orange"]),
-         (0.45, f"1 in {round(1/MA['diff'])}", "eligible adolescents given a\ndifferent dose or interval,\nnever below the formula need", C["blue"]),
-         (0.20, f"{100*nums['p32_mean2']:.0f}%", "exclusion risk at 32 IU/mL\nwhen a value near 30\nis repeated and averaged", C["aqua"]))
+         (0.45, f"1 in {round(1/MA['diff'])}", "eligible adolescents given a\ndifferent dose or interval,\nalmost never below the formula need", C["blue"]),
+         (0.20, "≈15%", "exclusion risk at 32 IU/mL\nwhen results of 27–35 IU/mL\nare repeated", C["aqua"]))
 for y, big, small, colr in items:
     fig.text(0.69, y, big, fontsize=24, fontweight="bold", color=colr)
     fig.text(0.69, y - 0.105, small, fontsize=9.5, color=C["ink"], va="bottom")
@@ -118,7 +118,7 @@ plt.close(fig)
 # ---------------------------------------------------------------- Turkish scenario (supplement)
 from neyzi_lms import sample_weight
 RNG = np.random.default_rng(20261118)
-bars = pd.read_csv("digit/altan_ige_bars.csv")
+bars = pd.read_csv("data/altan2025_ige_bars_digitized.csv")
 bars["sigma"] = (np.log(bars.p975) - np.log(bars["median"])) / 1.959964
 bars["age"] = 1 + 17 * (np.arange(len(bars)) + 0.5) / len(bars)
 rows = []

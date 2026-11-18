@@ -1,28 +1,31 @@
-# Total IgE measurement error and omalizumab dosing in children
+# One measurement, one dose: total IgE measurement error and omalizumab dosing in children
 
 Code and transcribed dosing tables for the simulation study:
 
-> Kilinckaya L, Kilinckaya MF, Topcu DI, Doğru M. *Total IgE measurement error and omalizumab dosing in children: a simulation study.* (submitted to Pediatric Allergy and Immunology)
+> Kilinckaya L, Kilinckaya MF, Topcu DI, Doğru M. *One measurement, one dose: total IgE measurement error and omalizumab dosing in children.* (submitted to Pediatric Allergy and Immunology)
 
-Omalizumab dose and dosing interval are read from a table of pretreatment total IgE and body weight. This repository estimates how often routine analytical error in total IgE assigns a child a different regimen, or a different eligibility decision, than the true IgE would.
+Omalizumab eligibility, dose and dosing interval are read from a table of pretreatment total IgE and body weight. This repository estimates how often routine analytical error in total IgE changes the eligibility decision or the assigned regimen, compared with the child's true IgE, and whether the assigned dose falls below the pharmacological (formula) requirement.
 
 ## Contents
 
 | File | Purpose |
 | --- | --- |
-| `dose_tables.py` | Omalizumab dosing tables transcribed cell by cell: Turkish SmPC (KÜB, revised 4 July 2026, Tables 2–3) and FDA prescribing information (February 2024, Tables 1, 2, 4). Includes an automatic cross-check: the FDA food-allergy table equals the Turkish table for weights ≥20 kg. |
-| `core.py` | Measurement error model and child-level outcome probabilities (analytical, no Monte Carlo). |
-| `omal_analysis.py` | Main analysis on NHANES 2005–2006 children: Tables 1–4 and Figure 1. |
-| `tr_scenario.py` | Turkish scenario: IgE distribution digitized from Altan et al. (2025) with Turkish (Neyzi 2015) or NHANES body weights. |
-| `neyzi_lms.py` | Turkish weight-for-age LMS parameters (Neyzi et al. 2015, Table 5, with the authors' 2026 correction for 8-year-old boys). |
-| `fig2_clinician.py` | Figure 2: repeated-measurement illustration and effect of analytical CV. |
-| `graphical_abstract.py` | Graphical abstract (9:6, 400 dpi). |
+| `dose_tables.py` | Omalizumab dosing tables transcribed cell by cell: Turkish SmPC (Kısa Ürün Bilgisi, revised 4 July 2026, Tables 2–3) and FDA prescribing information (February 2024, Tables 1, 2, 4). Automatic cross-check: the FDA food-allergy table equals the Turkish table for weights ≥20 kg. |
+| `analysis_v2.py` | Main analysis (manuscript Tables 1–3, Supplementary Tables S2–S3). |
+| `figs_v2.py` | Figures 1–2, graphical abstract and Supplementary Table S1 (Turkish scenario). |
+| `neyzi_lms.py` | Turkish weight-for-age LMS parameters (Neyzi et al. 2015, Table 5, with the published 2026 correction for 8-year-old boys). |
 | `data/altan2025_ige_bars_digitized.csv` | Median and 2.5th/97.5th percentiles of total IgE in 108 age bins (1–18 years), digitized from the published supplementary figure of Altan et al. 2025. |
-| `results/` | Output tables and figures. |
+| `results_v2/` | Output tables (`omalizumab_tables_v2.xlsx`, `summary_v2.txt`) and figures. |
+| `legacy_v1/` | First-draft analysis (all children with ever-asthma, constant CV 11%), kept for transparency. |
 
-## Measurement error model
+## Methods in brief
 
-Reported IgE = true IgE × (1 + bias) × exp(ε), with ε ~ N(0, s²) and s² = ln(1 + CV_A²) + ln(1 + CV_I²); for the mean of n measurements, s²/n. For each child, the probability of falling into each IgE row of the dosing table is computed analytically for the child's weight column.
+- **Populations (NHANES 2005–2006):** children with current physician-diagnosed asthma (MCQ010, MCQ035) and sensitization to at least one perennial aeroallergen (specific IgE ≥0.35 kU/L to *D. pteronyssinus*, *D. farinae*, cat, dog, German cockroach or *Alternaria*); food-sensitized children (egg, milk, peanut). Survey weights are applied.
+- **Measurement error:** reported IgE = true IgE × (1 + bias) × exp(ε), ε ~ N(0, s²), s² = ln(1 + CV_A²) + ln(1 + CV_I²); for the mean of n measurements, s²/n. Probabilities of each table row are computed analytically.
+- **Main analytical CV:** concentration-dependent profile from the NHANES total IgE quality-control data (laboratory procedure manual AL_IGE_D): 8.6% at 24, 8.4% at 103, 8.7% at 439 kU/L, interpolated on log concentration.
+- **Outcomes:** false ineligibility (primary), different regimen, dose below 80% and 100% of the formula requirement (0.016 × kg × IU/mL per 4 weeks), false eligibility.
+- **Confidence intervals:** Rao–Wu rescaling bootstrap of primary sampling units within strata (1000 replicates).
+- **Repeat-testing strategies:** Monte Carlo (4000 measurement pairs per child).
 
 ## Data
 
@@ -34,23 +37,23 @@ NHANES 2005–2006 files are public and are not redistributed here. Download int
 
 ```bash
 pip install -r requirements.txt
-python omal_analysis.py      # main analysis → results/omalizumab_tablolar.xlsx, Fig1
-python tr_scenario.py        # Turkish scenario → results/T5_turk_senaryosu.csv
-python fig2_clinician.py     # Figure 2
+python analysis_v2.py   # → results_v2/omalizumab_tables_v2.xlsx, summary_v2.txt
+python figs_v2.py       # → results_v2/Fig1, Fig2, graphical abstract, S_turkish_scenario.csv
 ```
 
-Tested with Python 3.11, NumPy 2.5, SciPy 1.18, pandas 3.0, matplotlib 3.11. Random seeds are fixed.
+Random seeds are fixed.
 
 ## Sources
 
 - FDA. XOLAIR (omalizumab) prescribing information, February 2024.
 - Novartis. Xolair 150 mg Kısa Ürün Bilgisi (Turkish SmPC), revised 4 July 2026.
+- CDC. NHANES 2005–2006 laboratory procedure manual: allergen-specific and total IgE (AL_IGE_D).
 - Altan TK, Karakoyun İ, Çolak A, Topcu DI. Am J Clin Pathol 2025;164:870-878. doi:10.1093/ajcp/aqaf111
 - Neyzi O, et al. J Clin Res Pediatr Endocrinol 2015;7:280-293. doi:10.4274/jcrpe.2183
 
 ## Use of AI
 
-Code drafting and transcription checks were assisted by Claude (Anthropic). All code, tables and results were reviewed by the authors.
+Code drafting was assisted by Claude (Anthropic). Dosing tables were verified against the source documents by the authors, and all code and results were reviewed by the authors.
 
 ## License
 
