@@ -44,7 +44,7 @@ TABLES["FDA_T1"] = dict(
         q4(300, 300, 300) + q2(225),
         q4(300) + q2(225, 225, 300),
         q2(225, 225, 300) + no(1),
-        q2(300, 300, 375) + no(1),   # >70-90 kg hücresi PDF görüntüsünde boş beyaz; eski etiketlerde 375 → TEYİT
+        q2(300, 300, 375) + no(1),   # 375 q2w — FDA Table 1 görseliyle teyit edildi (18.11.2026)
         q2(300, 375) + no(2),
         q2(375) + no(3),
     ])
