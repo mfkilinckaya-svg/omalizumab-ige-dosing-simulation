@@ -13,6 +13,8 @@ Omalizumab eligibility, dose and dosing interval are read from a table of pretre
 | `dose_tables.py` | Omalizumab dosing tables transcribed cell by cell: Turkish SmPC (Kısa Ürün Bilgisi, revised 4 July 2026, Tables 2–3) and FDA prescribing information (February 2024, Tables 1, 2, 4). Automatic cross-check: the FDA food-allergy table equals the Turkish table for weights ≥20 kg. |
 | `analysis_v2.py` | Main analysis (manuscript Tables 1–3, Supplementary Tables S2–S3). |
 | `pkpd_v2.py` | Free IgE consequence of regimen changes, using the published omalizumab–IgE binding model of Lowe et al. 2009 (typical-patient parameters) → `results_v2/pkpd_free_ige.csv`. |
+| `pkpd_iiv.py` | Sensitivity analysis with the interindividual variability of Lowe et al. 2009 (200 virtual patients per adolescent); fold change after a one-row step down; results without adolescents <39 kg. |
+| `figS1_pkpd.py` | Supplementary Figure S1: check of the implemented binding model (typical profiles; free IgE in every dosing-table cell). |
 | `figs_v2.py` | Figures 1–2, graphical abstract and Supplementary Table S1 (Turkish scenario). |
 | `neyzi_lms.py` | Turkish weight-for-age LMS parameters (Neyzi et al. 2015, Table 5, with the published 2026 correction for 8-year-old boys). |
 | `data/altan2025_ige_bars_digitized.csv` | Median and 2.5th/97.5th percentiles of total IgE in 108 age bins (1–18 years), digitized from the published supplementary figure of Altan et al. 2025. |
@@ -41,7 +43,9 @@ NHANES 2005–2006 files are public and are not redistributed here. Download int
 pip install -r requirements.txt
 python analysis_v2.py   # → results_v2/omalizumab_tables_v2.xlsx, summary_v2.txt
 python figs_v2.py       # → results_v2/Fig1, Fig2, graphical abstract, S_turkish_scenario.csv
-python pkpd_v2.py       # → results_v2/pkpd_free_ige.csv (free IgE analysis)
+python pkpd_v2.py       # → results_v2/pkpd_free_ige.csv (free IgE analysis, typical parameters)
+python pkpd_iiv.py 200  # → results_v2/pkpd_iiv_summary.json (with interindividual variability)
+python figS1_pkpd.py    # → results_v2/FigS1_pkpd_check.png
 ```
 
 Random seeds are fixed.
